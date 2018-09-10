@@ -1,0 +1,16 @@
+{
+  "name": "vcharge_sdet_test",
+  "version": "1.0.0",
+  "description": "A simple API for SDET candidates to write tests against",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Ian White",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "4.16.2"
+  },
+  "engines": {
+    "node": "8.x.x"
+  }
+}

@@ -1,4 +1,16 @@
-# Software Development Engineer in Test technical test
+# Software Development Engineer in Test interviewer notes
+
+There are two parts to the technical test: coding and testing.
+
+## Coding assessment
+
+*This should take up to 30 minutes.*
+
+See [CODING_TESTS](CODING_TESTS.md)
+
+## Testing assessment
+
+*This should take up to 1 hour.*
 
 This is a basic web service exposing several REST endpoints, which can be used to assess a candidate's ability to programatically test web services.
 

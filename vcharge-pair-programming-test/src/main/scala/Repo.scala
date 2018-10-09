@@ -4,9 +4,9 @@ trait Repo {
 }
 
 class InMemoryRepo extends Repo {
-  private var state = Seq[Double]()
+  private var state = List[Double]()
 
-  override def add(value: Double): Unit = state = value +: state
+  override def add(value: Double): Unit = state = value :: state
 
   override def valuesForLast(x: Int): Seq[Double] = state dropRight (state.size - x)
 }

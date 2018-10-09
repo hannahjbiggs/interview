@@ -5,10 +5,10 @@ object Application {
 
   private val repo = new InMemoryRepo
   private val stabilityVerifier = new RepoCheckingStabilityVerifier(repo, numberOfValuesRequiredToProveInstability, stableValue)
-  private val dispatcher = new ConsoleDispatcher
+  private val alerter = new ConsoleAlerter
   private val ingester = new TelemetryIngester(repo)
   private val stats = new TelemetryStats(repo)
-  private val telemetryService = new AlertingTelemetryService(ingester, stats, stabilityVerifier, dispatcher)
+  private val telemetryService = new AlertingTelemetryService(ingester, stats, stabilityVerifier, alerter)
 
   def main(args: Array[String]): Unit = {
 

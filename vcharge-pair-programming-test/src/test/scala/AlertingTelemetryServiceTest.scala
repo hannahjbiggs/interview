@@ -7,20 +7,20 @@ class AlertingTelemetryServiceTest extends FlatSpec with Matchers with MockitoSu
   private val ingester = mock[Ingester]
   private val stats = mock[Stats]
   private val stabilityVerifier = mock[StabilityVerifier]
-  private val dispatcher = mock[Dispatcher]
-  private val alertingTelemetryService = new AlertingTelemetryService(ingester, stats, stabilityVerifier, dispatcher)
+  private val alerter = mock[Alerter]
+  private val alertingTelemetryService = new AlertingTelemetryService(ingester, stats, stabilityVerifier, alerter)
 
-  "AlerterTelemetryService" should "receive telemetry and pass it to the ingester" in {
+  "AlertingTelemetryService" should "receive telemetry and pass it to the ingester" in {
     alertingTelemetryService receive 1.0
 
     verify (ingester) receive 1.0
   }
 
-  "AlerterTelemetryService" should "tell the dispatcher to send an alert if the stabilityVerifier says that there is instability" in {
+  "AlertingTelemetryService" should "tell the alerter to send an alert if the stabilityVerifier says that there is instability" in {
     when (stabilityVerifier.hasInstability) thenReturn true
 
     alertingTelemetryService receive 1.0
 
-    verify (dispatcher) sendAlert()
+    verify (alerter) sendAlert()
   }
 }

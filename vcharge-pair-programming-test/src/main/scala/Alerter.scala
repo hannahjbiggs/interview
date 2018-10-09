@@ -1,7 +1,7 @@
-trait Dispatcher {
+trait Alerter {
   def sendAlert(): Unit
 }
 
-class ConsoleDispatcher extends Dispatcher {
+class ConsoleAlerter extends Alerter {
   override def sendAlert(): Unit = println("Alert")
 }
